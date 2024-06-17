@@ -1,0 +1,92 @@
+---
+run_name: tinyllama_1b_redpajama_wiki2k_20B_goldfish4_hash-table_h13
+out_dir: "/lustre/orion/csc569/scratch/njain17/new_workspace/lit-gpt-dev/output/tinyllama_1b_redpajama_wiki2k_20B_goldfish4_hash-table_h13_aFYDh8o"
+resume: true
+max_tokens: 26666666667
+max_iters: 
+seed: 1337
+model_name: tiny-llama-1.1b
+block_size: 2048
+ignore_block_size_mismatch: false
+model_checkpoint: 
+doc_block_attn: false
+cache_attn: false
+eod_token: 
+world_batch_size: 1408
+learning_rate: 0.0004
+warmup_steps: 1000
+weight_decay: 0.1
+beta1: 0.9
+beta2: 0.95
+adamw_eps: 1.0e-08
+grad_clip: 1
+lr_schedule: cosine
+decay_lr: true
+min_lr: 4.0e-05
+no_weight_decay_for_bias_and_norm_params: false
+neptune_from_tokens: 
+neptune_till_tokens: 
+neptune_noise_alpha: 
+label_smoothing: 0
+goldfish_strategy: hash-table
+k_goldfish: 4
+goldfish_start_position: 0
+goldfish_context_width: 13
+fabric_strategy: ddp
+fabric_precision: bf16-true
+micro_batch_size: 11
+compile_model: true
+matmul_precision: high
+dataloader_num_workers: 0
+n_chunks: 4
+tensor_parallel_size: 1
+torch_dist_init_barrier: false
+gradient_checkpointing_axonn: false
+logger_name: wandb
+logger_project: goldfish-TinyLLaMA-1B
+data_telemetry: false
+shape_watching_iters: 3
+log_step_interval: 1
+eval_iters: 2000
+save_and_eval_interval: 2000
+save_step_interval: 2000
+eval_step_interval: 2000
+save_last_step: true
+save_n_min_before_job_done: 5
+sanity_validate: true
+measure_flops: false
+torch_cpp_log_level: 
+torch_distributed_debug: 
+text_key: text
+pad_to_block_size: true
+add_bos: false
+add_eos: true
+shuffle_filenames: true
+collate_checks_enabled: true
+all_block_size_tensors: false
+data_config:
+  train_data:
+  - type: pkds
+    prefix: ''
+    weight: 0.98986379474
+    data_dir: "/lustre/orion/csc569/proj-shared/language_datasets/processed/redpajama_v2_sample_100b_tinyllama_tokd"
+    name: redpajama_v2_sample_100b_tinyllama_tokd
+  - type: hfds
+    prefix: wikipedia-en-2k
+    weight: 0.01013620526
+    data_dir: "/lustre/orion/csc569/proj-shared/language_datasets/processed/wikipedia-en-2k-samples/train"
+    name: wikipedia-en-2k-samples
+  val_data:
+  - type: pkds
+    prefix: ''
+    weight: 0.98986379474
+    data_dir: "/lustre/orion/csc569/proj-shared/language_datasets/processed/redpajama_v2_sample_100b_tinyllama_tokd"
+    name: redpajama_v2_sample_100b_tinyllama_tokd
+  - type: hfds
+    prefix: wikipedia-en-2k
+    weight: 0.01013620526
+    data_dir: "/lustre/orion/csc569/proj-shared/language_datasets/processed/wikipedia-en-2k-samples/val"
+    name: wikipedia-en-2k-samples
+train_data_dir: "/lustre/orion/csc569/proj-shared/language_datasets/processed/spj_star_combined_full_tinyllama_tokd"
+val_data_dir: "/lustre/orion/csc569/proj-shared/language_datasets/processed/spj_star_combined_full_tinyllama_tokd"
+tokenizer_path: "/lustre/orion/csc569/proj-shared/language_models/external/TinyLlama-1.1B-intermediate-step-1431k-3T"

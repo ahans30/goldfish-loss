@@ -1,0 +1,88 @@
+# Main settings
+
+resume: true
+out_dir: null # mention in --extra_args
+max_tokens: 20000000000 # 20B
+max_iters: null
+seed: 1337
+
+# Model configuration
+model_name: tiny-llama-1.1b
+block_size: 2048
+
+# Training hyperparameters
+world_batch_size: 1024
+learning_rate: 4.0e-04
+warmup_steps: 1000 # out of 9536.74 total steps
+weight_decay: 0.1
+beta1: 0.9
+beta2: 0.95
+grad_clip: 1.0
+lr_schedule: cosine
+decay_lr: true
+min_lr: 4.0e-05
+
+# Regularization
+neptune_from_tokens: null
+neptune_till_tokens: null
+neptune_noise_alpha: null
+label_smoothing: 0.0
+# goldfish_strategy: static specify in --extra_args
+# k_goldfish: specify in --extra_args
+
+# Implementation and backend
+fabric_strategy: ddp
+fabric_precision: bf16-true
+micro_batch_size: 8
+compile_model: true
+matmul_precision: high
+dataloader_num_workers: 0
+n_chunks: 4
+
+# Logging
+logger_name: wandb
+logger_project: goldfish-TinyLLaMA-1B
+data_telemetry: false
+log_step_interval: 1
+eval_iters: 2000
+save_and_eval_interval: 2000
+sanity_validate: true
+measure_flops: false
+save_n_min_before_job_done: 5
+save_last_step: true
+
+# Data Handling
+text_key: text
+pad_to_block_size: true
+add_bos: false
+add_eos: true
+shuffle_filenames: true
+collate_checks_enabled: true
+all_block_size_tensors: false
+
+# use redpajama_v2_sample_100b_tinyllama_tokd and wikipedia-en-2k-samples
+# Data configuration/paths
+tokenizer_path: /lustre/orion/csc569/proj-shared/language_models/external/TinyLlama-1.1B-intermediate-step-1431k-3T
+data_config:
+  train_data:
+  - type: pkds
+    prefix: ''
+    weight: 0.98986379474 # 20B - 204.8M tokens
+    data_dir: "/lustre/orion/csc569/proj-shared/language_datasets/processed/redpajama_v2_sample_100b_tinyllama_tokd"
+    name: redpajama_v2_sample_100b_tinyllama_tokd
+  - type: hfds
+    prefix: 'wikipedia-en-2k'
+    weight: 0.01013620526 # 204.8M tokens
+    data_dir: "/lustre/orion/csc569/proj-shared/language_datasets/processed/wikipedia-en-2k-samples/train"
+    name: wikipedia-en-2k-samples
+  val_data:
+  - type: pkds
+    prefix: ''
+    weight: 0.98986379474 # 20B - 204.8M tokens
+    data_dir: "/lustre/orion/csc569/proj-shared/language_datasets/processed/redpajama_v2_sample_100b_tinyllama_tokd"
+    name: redpajama_v2_sample_100b_tinyllama_tokd
+  - type: hfds
+    prefix: 'wikipedia-en-2k'
+    weight: 0.01013620526 # 204.8M tokens
+    data_dir: "/lustre/orion/csc569/proj-shared/language_datasets/processed/wikipedia-en-2k-samples/val"
+    name: wikipedia-en-2k-samples

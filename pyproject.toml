@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+requires-python = ">= 3.11"
+
+[project]
+name = "lit-gpt-umd"
+version = "0.1"
+dependencies = [
+  "torch==2.1.2",
+  "lightning @ git+https://github.com/Lightning-AI/lightning@ed367ca675861cdf40dbad2e4d66f7eee2ec50af",
+  "pytorch-lightning==2.2.1",
+  "jsonargparse",
+  "requests",
+  "tensorboard",
+  "torchmetrics",
+  "submitit @ git+https://github.com/jwkirchenbauer/submitit.git",
+  "lm-eval @ git+https://github.com/EleutherAI/lm-evaluation-harness.git@115206dc89dad67b8beaa90051fb52db77f0a529",
+  "wandb",
+  "sentencepiece",
+  "tokenizers",
+  "datasets",
+]
+# Note: The order really matters here!
+# We really should migrate to lm-eval 0.4.* eventually (or wait for lit-gpt to migrate)
+# Not really a best practice to inscribe exact packages here :)
+
+[project.optional-dependencies]
+# only for testing
+dev = [
+  "pytest",
+  "pytest-rerunfailures",
+  "pytest-timeout",
+  "transformers>=4.38.0",
+  "einops",
+  "protobuf",
+  "docstring_parser",
+  "lightning-cloud",
+]
+
+# only for data preproc
+data = [
+  "lightning[data] @ git+https://github.com/Lightning-AI/lightning@ed367ca675861cdf40dbad2e4d66f7eee2ec50af",
+  "requests",
+  "zstandard",
+  "pandas",
+  "pyarrow",
+]
+
+quant = [
+  "bitsandbytes>=0.41.0",
+  "scipy",
+]
+
+# only on the cluster:
+hpc = [
+  "packaging",
+  "ninja",
+  "flash_attn @ git+https://github.com/ROCmSoftwarePlatform/flash-attention",
+  "axonn", # requires <mpi.h> headers
+]
+
+[tool.black]
+line-length = 120
+
+[tool.setuptools.packages.find]
+include = ["lit-gpt", "axonn_fabric", "generate", "eval", "scripts", "finetune", "analysis", "chat"]
+
+[project.entry-points.console_scripts]
+train = "pretrain_umd.module:train"
+push_to_hub = "scripts.module:push_to_hub"
+launch = "launch_scripts.module:launch_submitit"
+

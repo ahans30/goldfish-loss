@@ -1,0 +1,36 @@
+__pycache__
+.idea
+.DS_Store
+*.egg-info
+build
+.venv
+.vscode
+
+# data
+data
+datasets
+!lit_gpt/data
+!tests/data
+checkpoints
+out
+output
+outputs
+log
+wandb
+events.out.tfevents*
+results
+
+tests/reference_models
+
+# umd artifact paths
+slurm_logs/
+logs/
+checkpoints/
+
+jwk_scratch/ahans/*
+mia_outputs/
+data_extraction_outputs/
+mem_output/
+launch_scripts/ahans/archive
+
+.github*

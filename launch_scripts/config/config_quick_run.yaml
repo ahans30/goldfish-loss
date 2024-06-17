@@ -1,0 +1,58 @@
+run_name: default-run
+out_dir: null
+resume: true
+max_tokens: 1000000000000
+max_iters: null
+seed: 1337
+model_name: tiny-llama-1.1b
+block_size: 2048
+world_batch_size: 32
+learning_rate: 0.0004
+warmup_steps: 2000
+weight_decay: 0.1
+beta1: 0.9
+beta2: 0.95
+grad_clip: 1.0
+lr_schedule: cosine
+decay_lr: true
+min_lr: 4.0e-05
+neptune_from_tokens: null
+neptune_till_tokens: null
+neptune_noise_alpha: null
+label_smoothing: 0.0
+k_token_loss_dropout: null
+fabric_strategy: ddp
+fabric_precision: bf16-true
+micro_batch_size: 4
+compile_model: true
+matmul_precision: high
+dataloader_num_workers: 0
+n_chunks: 4
+logger_name: wandb
+logger_project: tinyllama
+data_telemetry: false
+log_step_interval: 1
+eval_iters: 100
+save_and_eval_interval: 2000
+save_last_step: false
+sanity_validate: true
+measure_flops: false
+text_key: text
+pad_to_block_size: false
+add_bos: true
+add_eos: true
+shuffle_filenames: true
+collate_checks_enabled: true
+all_block_size_tensors: false
+data_config:
+  train_data:
+  - type: pkds
+    prefix: ''
+    weight: 1
+  val_data:
+  - type: pkds
+    prefix: ''
+    weight: 1
+train_data_dir: /lustre/orion/csc569/proj-shared/language_datasets/processed/spj_star_combined_full_tinyllama_tokd
+val_data_dir: /lustre/orion/csc569/proj-shared/language_datasets/processed/spj_star_combined_full_tinyllama_tokd
+tokenizer_path: /lustre/orion/csc569/proj-shared/language_models/external/TinyLlama-1.1B-intermediate-step-1431k-3T
