@@ -6,13 +6,13 @@
 </p>
 
 
-We introduce goldfish_loss -- a strikingly simple technique to mitigating extractable memorization in large language models. 
+#### We introduce goldfish loss — a strikingly simple technique to mitigating extractable memorization in large language models.
 
 ## Getting Started
 
-This codebase is setup to (pre)train large language models in a distributed training setup using SLURM. This is written for and tested on AMD compute-nodes located at [ORLC's Frontier cluster](https://www.olcf.ornl.gov/frontier/).
+This codebase is setup to (pre)train large language models in a distributed training setup using SLURM. This is written for and tested on AMD compute-nodes.
 
-For implementation of goldfish loss, please checkout [`apply_goldfish`](https://github.com/ahans30/goldfish_loss/blame/main/lit_gpt/utils.py#L241) method in `lit_gpt/utils.py`.
+For implementation of goldfish loss, please checkout [`apply_goldfish`](https://github.com/ahans30/goldfish-loss/blob/70bfad87dcf69da2921bcad08e662925ab2ab60b/lit_gpt/utils.py#L241) method in `lit_gpt/utils.py`.
 
 ### Installation
 Before running below command, checkout the script and setup path variables specific to your compute instance (e.g. `INSTALLDIR`).
