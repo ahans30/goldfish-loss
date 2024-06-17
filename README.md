@@ -10,7 +10,7 @@
 
 ## Getting Started
 
-This codebase is setup to (pre)train large language models in a distributed training setup using SLURM. This repo is written and tested on AMD compute-nodes and is a fork of [Lightning AI's LitGPT codebase](https://github.com/Lightning-AI/litgpt).
+This codebase is setup to (pre)train large language models in a distributed training setup using SLURM. This repo is written and tested on AMD compute-nodes and is a fork of Lightning AI's [LitGPT repository](https://github.com/Lightning-AI/litgpt).
 
 For implementation of goldfish loss, please checkout [`apply_goldfish`](https://github.com/ahans30/goldfish-loss/blob/70bfad87dcf69da2921bcad08e662925ab2ab60b/lit_gpt/utils.py#L241) method in `lit_gpt/utils.py`.
 
