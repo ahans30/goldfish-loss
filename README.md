@@ -21,7 +21,7 @@ Before running below command, checkout the script and setup path variables speci
 $ bash install.sh
 ```
 
-This will take some time, but will create a folder called `goldfish_loss` and a folder called `tiny_plugins_rccl` in the installation directory (which is `$HOME` by default). The conda folder contains a fully functional conda environment containing all neccessary packages to run our training scripts. The RCCL folder contains code for the interconnect plugin that is crucial for multi-node jobs. You can enable this environment by using `source activate ${INSTALLDIR}/<PATH-TO-ENV_NAME>`.
+This will take some time, but will create a folder called `goldfish_loss` and a folder called `tiny_plugins_rccl` in the installation directory (which is `$HOME` by default). The conda folder contains a fully functional conda environment containing all necessary packages to run our training scripts. The RCCL folder contains code for the interconnect plugin that is crucial for multi-node jobs. You can enable this environment by using `source activate ${INSTALLDIR}/<PATH-TO-ENV_NAME>`.
 
 Please note, this installation is specific for AMD's compute nodes and is written as such.
 
