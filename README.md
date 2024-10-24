@@ -1,5 +1,5 @@
 
-# Goldfish Loss: Mitigating Memorization in Generative LLMs
+# Goldfish Loss: Mitigating Memorization in Generative LLMs [[paper]](https://arxiv.org/abs/2406.10209)[[checkpoints]](https://huggingface.co/collections/tomg-group-umd/goldfish-loss-mitigating-memorization-in-llms-66c175becb6aab07744f7272)
 
 <p align="center">
   <img src="assets/goldfish-loss.jpg" width="200" height="200" alt="A very smart goldfish">
