@@ -48,12 +48,13 @@ We believe in open source community development. Feel free to add things, open i
 If you find our work useful, please cite our paper:
 
 ```bibtex
-@misc{hans2024like,
-      title={Be like a Goldfish, Don't Memorize! Mitigating Memorization in Generative LLMs}, 
-      author={Abhimanyu Hans and Yuxin Wen and Neel Jain and John Kirchenbauer and Hamid Kazemi and Prajwal Singhania and Siddharth Singh and Gowthami Somepalli and Jonas Geiping and Abhinav Bhatele and Tom Goldstein},
-      year={2024},
-      eprint={2406.10209},
-      archivePrefix={arXiv},
+@inproceedings{
+  hans2024goldfishloss,
+  title={Be like a Goldfish, Don't Memorize! Mitigating Memorization in Generative {LLM}s},
+  author={Abhimanyu Hans and John Kirchenbauer and Yuxin Wen and Neel Jain and Hamid Kazemi and Prajwal Singhania and Siddharth Singh and Gowthami Somepalli and Jonas Geiping and Abhinav Bhatele and Tom Goldstein},
+  booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
+  year={2024},
+  url={https://openreview.net/forum?id=DylSyAfmWs}
 }
 ```
 
